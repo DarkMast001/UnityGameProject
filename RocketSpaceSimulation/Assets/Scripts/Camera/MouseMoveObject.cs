@@ -27,14 +27,6 @@ public class MouseMoveObject : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             target.position = ray.origin + ray.direction * distance + offset;
-            /*if (target.position.y >= 0.5)
-            {
-                target.position = ray.origin + ray.direction * distance + offset;
-                if (target.position.y <= 0.5)
-                {
-                    target.transform.Translate(0, (float)0.2, 0);
-                }
-            }*/
         }
         if (Input.GetMouseButtonUp(0))
             target = null;
