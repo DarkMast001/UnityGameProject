@@ -14,6 +14,8 @@ public class DistabceOBJ : MonoBehaviour
     public GameObject to_connect;
     public GameObject attachable;
 
+
+
     public void Update()
     {
         //distanceBetweenObjects = Vector3.Distance(point1.transform.position, point2.transform.position);
