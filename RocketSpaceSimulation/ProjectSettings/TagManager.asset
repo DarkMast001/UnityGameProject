@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - One_side_connect
-  - Two_side_connect
-  - Three_side_connect
-  - Four_side_connect
-  - Five_side_connect
-  - Six_side_connect
-  - Sircle_side_connect
+  - Support
+  - Main_shuttle
   layers:
   - Default
   - TransparentFX

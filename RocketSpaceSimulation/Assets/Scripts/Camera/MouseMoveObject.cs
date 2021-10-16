@@ -21,14 +21,25 @@ public class MouseMoveObject : MonoBehaviour
                 target = hit.transform;
                 offset = target.position - hit.point;
                 distance = hit.distance;
+                if(target != exception_target)
+                {
+                    target.tag = "Untagged";
+                    target.gameObject.AddComponent(typeof(DistabceOBJ));
+                }
             }
         }
         if (Input.GetMouseButton(0) && !Input.GetMouseButtonDown(0) && target != null && target != exception_target)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             target.position = ray.origin + ray.direction * distance + offset;
+            if (Input.GetKey(KeyCode.Delete) && target != exception_target)
+                Destroy(target.gameObject);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && target != exception_target)
+        {
+            Destroy(target.GetComponent<DistabceOBJ>());
+            target.tag = "Support";
             target = null;
+        }
     }
 }

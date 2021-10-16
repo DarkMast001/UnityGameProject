@@ -66,7 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c90986ea72c01204292c2972b5d83234, type: 3}
       propertyPath: m_Name
-      value: Body_3
+      value: Body_3_pref
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c90986ea72c01204292c2972b5d83234, type: 3}
+      propertyPath: m_TagString
+      value: Support
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90986ea72c01204292c2972b5d83234, type: 3}

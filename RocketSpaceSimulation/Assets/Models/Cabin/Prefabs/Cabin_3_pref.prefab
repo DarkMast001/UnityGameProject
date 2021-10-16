@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32ce24974a0955c469809ddc0c4a1759, type: 3}
       propertyPath: m_TagString
-      value: One_side_connect
+      value: Support
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32ce24974a0955c469809ddc0c4a1759, type: 3}

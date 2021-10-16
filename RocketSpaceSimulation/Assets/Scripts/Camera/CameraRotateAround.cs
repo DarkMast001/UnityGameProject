@@ -24,9 +24,9 @@ public class CameraRotateAround : MonoBehaviour {
 
 	void Update ()
 	{
-		if(Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
-		else if(Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
-		offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
+        if(Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
+        else if(Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
+        offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
 
 		if (Input.GetMouseButton(2)) //&& Input.GetMouseButton(1))
 		{
