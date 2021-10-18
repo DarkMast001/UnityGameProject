@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Load_scenes : MonoBehaviour
+public class Load_scenes : Shuttle_settings
 {
+    //Shuttle_settings settings;
+
     public void SceneLoading()
     {
-        SceneManager.LoadScene(1);
+        if (isEngineHas)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
     public void HangarLoading()
     {

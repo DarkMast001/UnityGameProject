@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DistabceOBJ : MonoBehaviour
+public class DistabceOBJ : Shuttle_settings
 {
     public bool isConnected;
     public float distanceX;
@@ -15,12 +15,20 @@ public class DistabceOBJ : MonoBehaviour
     public GameObject[] elements;
     GameObject mainShuttle;
 
-    public bool isEngineHas = false;
-
     private void Start()
     {
         elements = GameObject.FindGameObjectsWithTag("Support");
         mainShuttle = GameObject.FindGameObjectWithTag("Main_shuttle");
+
+        foreach (Transform child in GetComponentsInChildren<Transform>())
+        {
+            //print(child.name);
+            if (child.name == "Engine_1(Clone)" || child.name == "Engine_2(Clone)")
+            {
+                isEngineHas = true;
+                //print(1);
+            }
+        }
     }
 
     GameObject FindNearestObj()
@@ -48,15 +56,15 @@ public class DistabceOBJ : MonoBehaviour
         distanceY = transform.position.y - to_connect.transform.position.y;
         distanceZ = transform.position.z - to_connect.transform.position.z;
         isConnected = false;
-        foreach (Transform child in GetComponentsInChildren<Transform>())
+        /*foreach (Transform child in GetComponentsInChildren<Transform>())
         {
             //print(child.name);
             if (child.name == "Engine_1(Clone)" || child.name == "Engine_2(Clone)")
             {
-                isEngineHas = true;
+                settings.isEngineHas = true;
                 //print(1);
             }
-        }
+        }*/
         if (distanceX > 0 && Mathf.Abs(distanceX) < 1.3 && Mathf.Abs(distanceY) < 0.5 && Mathf.Abs(distanceZ) < 0.5)
         {
             double newPosX = to_connect.transform.position.x;
