@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseMoveObject : MonoBehaviour
+public class MouseMoveObject : Shuttle_settings
 {
     public Transform target;
     public Transform exception_target;
@@ -33,7 +33,17 @@ public class MouseMoveObject : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             target.position = ray.origin + ray.direction * distance + offset;
             if (Input.GetKey(KeyCode.Delete) && target != exception_target)
-                Destroy(target.gameObject);
+            {
+                //Destroy(target.gameObject);
+                if (engines.Contains(transform.gameObject))
+                {
+                    engines.Remove(target.gameObject);
+                }
+                else if (modules.Contains(transform.gameObject))
+                {
+                    modules.Remove(target.gameObject);
+                }
+            }
         }
         if (Input.GetMouseButtonUp(0) && target != exception_target)
         {
