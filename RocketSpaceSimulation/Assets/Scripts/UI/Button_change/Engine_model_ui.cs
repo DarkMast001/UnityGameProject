@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Engine : MonoBehaviour
+public class Engine_model_ui : MonoBehaviour
 {
     public GameObject ui_cabin;
     public GameObject ui_body;

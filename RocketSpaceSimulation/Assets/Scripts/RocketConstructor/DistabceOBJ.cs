@@ -27,7 +27,6 @@ public class DistabceOBJ : Shuttle_settings
             if (child.name == "Engine_1(Clone)" || child.name == "Engine_2(Clone)")
             {
                 engines.Add(child.gameObject);
-                isEngineHas = true;
                 //print(1);
             }
         }

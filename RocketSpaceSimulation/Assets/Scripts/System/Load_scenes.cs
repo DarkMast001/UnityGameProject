@@ -5,20 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Load_scenes : Shuttle_settings
 {
-    //Shuttle_settings settings;
 
     public void SceneLoading()
     {
-        //startModule.AddComponent<Rigidbody>();
-        /*for(int i = 0; i < engines.Count; i++)
-        {
-            engines[i].AddComponent<RocketStart>();
-            engines[i].AddComponent<Rigidbody>();
-        }*/
-
         for (int i = 0; i < modules.Count; i++)
         {
-            //print(modules[i + 1]);
             if (i + 1 == modules.Count)
             {
                 modules[i].AddComponent<RocketStart>();
@@ -55,11 +46,14 @@ public class Load_scenes : Shuttle_settings
             }
         }
 
+        GameObject rotated_point = modules[0];
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        camera.GetComponent<CameraRotateAround>().target = rotated_point.transform;
+
+        camera.GetComponent<Numeratic_parametors>().rb_for_speed = rotated_point.GetComponent<Rigidbody>();
+        // camera.GetComponent<Numeratic_parametors>().speed_doub = rb_for_speed.velocity.magnitude;
         //startModule.AddComponent<RocketStart>();
-        /*if (isEngineHas)
-        {
-            SceneManager.LoadScene(1);
-        }*/
+        // SceneManager.LoadScene(1);
     }
     public void HangarLoading()
     {

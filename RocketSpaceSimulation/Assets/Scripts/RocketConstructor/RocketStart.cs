@@ -16,7 +16,7 @@ public class RocketStart : Shuttle_settings
         if (Input.GetKey(KeyCode.Q))
         {
             //print(startModule.name);
-            rb.AddForce(gameObject.transform.forward * 20);
+            rb.AddForce(gameObject.transform.forward * 13);
         }
     }
 }
