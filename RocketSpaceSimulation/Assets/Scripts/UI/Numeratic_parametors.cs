@@ -10,6 +10,7 @@ public class Numeratic_parametors : MonoBehaviour
     public Text fuel_quantity;
 
     public Rigidbody rb_for_speed;
+    public GameObject haight_obj;
 
     public double speed_doub;
     public double haight_doub;
@@ -21,6 +22,7 @@ public class Numeratic_parametors : MonoBehaviour
         {
             speed_doub = rb_for_speed.velocity.magnitude;
             speed.text = "Speed: " + (int)speed_doub;
+            height.text = "Haight: " + (int)transform.position.y;
         }
     }
 }

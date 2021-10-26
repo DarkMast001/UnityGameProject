@@ -5,12 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Load_scenes : Shuttle_settings
 {
-
     public void SceneLoading()
     {
         for (int i = 0; i < modules.Count; i++)
         {
-            if (i + 1 == modules.Count)
+            print(modules[i]);
+            modules[i].AddComponent<FixedJoint>();
+            if (i == 1)
+            {
+                FixedJoint fj_1 = modules[i - 1].GetComponent<FixedJoint>();
+                fj_1.connectedBody = modules[i].GetComponent<Rigidbody>();
+            }
+           // else if (i > 1) 
+            //{
+                FixedJoint fx = modules[i].GetComponent<FixedJoint>();
+                fx.connectedBody = modules[0].GetComponent<Rigidbody>();
+            //}
+            if (engines.Contains(modules[i]))
+            {
+                modules[i].AddComponent<RocketStart>();
+            }
+            /*if (i + 1 == modules.Count && modules[i].GetComponent<FixedJoint>() == null)
             {
                 modules[i].AddComponent<RocketStart>();
                 modules[i].AddComponent<FixedJoint>();
@@ -36,14 +51,14 @@ public class Load_scenes : Shuttle_settings
                         fj_2.connectedBody = modules[0].GetComponent<Rigidbody>();
                     }
                 }
-                else if (engines.Contains(modules[i]))
+                else if (modules.Contains(modules[i]))
                 {
                     modules[i].AddComponent<FixedJoint>();
                     modules[i].AddComponent<RocketStart>();
                     FixedJoint fj_1 = modules[i].GetComponent<FixedJoint>();
                     fj_1.connectedBody = modules[0].GetComponent<Rigidbody>();
                 }
-            }
+            }*/
         }
 
         GameObject rotated_point = modules[0];
@@ -51,8 +66,7 @@ public class Load_scenes : Shuttle_settings
         camera.GetComponent<CameraRotateAround>().target = rotated_point.transform;
 
         camera.GetComponent<Numeratic_parametors>().rb_for_speed = rotated_point.GetComponent<Rigidbody>();
-        // camera.GetComponent<Numeratic_parametors>().speed_doub = rb_for_speed.velocity.magnitude;
-        //startModule.AddComponent<RocketStart>();
+        camera.GetComponent<Numeratic_parametors>().haight_obj = rotated_point;
         // SceneManager.LoadScene(1);
     }
     public void HangarLoading()

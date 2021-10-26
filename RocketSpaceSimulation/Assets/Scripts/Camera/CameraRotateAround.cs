@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotateAround : MonoBehaviour {
-
+public class CameraRotateAround : MonoBehaviour 
+{
 	public Transform target;
 	public Vector3 offset;
 	public float sensitivity = 3; // чувствительность мышки
