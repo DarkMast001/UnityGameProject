@@ -9,7 +9,7 @@ public class Load_scenes : Shuttle_settings
     {
         for (int i = 0; i < modules.Count; i++)
         {
-            print(modules[i]);
+            //print(modules[i]);
             modules[i].AddComponent<FixedJoint>();
             if (i == 1)
             {

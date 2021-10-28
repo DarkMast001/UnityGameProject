@@ -34,14 +34,16 @@ public class MouseMoveObject : Shuttle_settings
             target.position = ray.origin + ray.direction * distance + offset;
             if (Input.GetKey(KeyCode.Delete) && target != exception_target)
             {
-                //Destroy(target.gameObject);
+                // Destroy(target.gameObject);
                 if (engines.Contains(transform.gameObject))
                 {
                     engines.Remove(target.gameObject);
+                    Destroy(target.gameObject);
                 }
                 else if (modules.Contains(transform.gameObject))
                 {
                     modules.Remove(target.gameObject);
+                    Destroy(target.gameObject);
                 }
             }
         }
