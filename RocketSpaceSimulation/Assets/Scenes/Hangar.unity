@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 308019422}
   m_Layer: 0
   m_Name: Rotate_point
-  m_TagString: Untagged
+  m_TagString: Center
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,6 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d8159a9850a2d4c99de76870e1a0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_FUEL: 0
+  Current_fuel: 0
 --- !u!1 &345128684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ad92d4da865924a93081bcc8f227d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_FUEL: 0
+  Current_fuel: 0
   target: {fileID: 0}
   exception_target: {fileID: 1463059683}
 --- !u!114 &963194232
@@ -2540,6 +2544,7 @@ MonoBehaviour:
   amount_of_fuel: {fileID: 1817681277}
   rb_for_speed: {fileID: 0}
   haight_obj: {fileID: 0}
+  center_point: {fileID: 308019420}
   speed_doub: 0
 --- !u!1 &972615059
 GameObject:
@@ -4041,6 +4046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e02b4aa96882a64884064355ceea6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_FUEL: 0
+  Current_fuel: 0
+  scroll: {fileID: 1817681275}
 --- !u!1 &1540803933
 GameObject:
   m_ObjectHideFlags: 0

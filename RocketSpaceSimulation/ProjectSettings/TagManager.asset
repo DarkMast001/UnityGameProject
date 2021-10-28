@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Support
   - Main_shuttle
+  - Center
   layers:
   - Default
   - TransparentFX

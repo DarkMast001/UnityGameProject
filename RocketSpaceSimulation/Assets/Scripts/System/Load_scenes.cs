@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Load_scenes : Shuttle_settings
 {
+    public GameObject scroll;
+
     public void SceneLoading()
     {
+        scroll.SetActive(false);
         for (int i = 0; i < modules.Count; i++)
         {
             //print(modules[i]);
