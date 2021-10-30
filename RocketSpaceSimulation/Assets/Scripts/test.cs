@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public GameObject obj;
-    Rigidbody rb;
+    public ParticleSystem part;
+
     void Start()
     {
-        rb = obj.GetComponent<Rigidbody>();
+        part = gameObject.GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.K))
         {
-            rb.AddForce(obj.transform.up * 15);
+            part.Play();
         }
-        if (Input.GetKeyDown(KeyCode.W) && transform.gameObject.GetComponent<FixedJoint>() == null)
+        else
         {
-            transform.gameObject.AddComponent<FixedJoint>();
+            part.Stop();
         }
     }
 }
