@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class engine_type_2 : Engin
+public class body_type_3 : Body
 {
-    double Fuel_consumtion_engine = fuel_consumtion_engine * 1.1;
+    double Fuel_quantity = fuel_quantity / 1.7;
+    double Mass_full_tank = mass_full_tank / 1.6;
 
     GameObject center_point;
 
@@ -12,13 +13,6 @@ public class engine_type_2 : Engin
     {
         center_point = GameObject.FindGameObjectWithTag("Center");
         center_point.GetComponent<Shuttle_settings>().weight_modules += gameObject.GetComponent<Rigidbody>().mass;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Q))
-        {
-            center_point.GetComponent<Shuttle_settings>().Current_fuel -= Fuel_consumtion_engine * Time.deltaTime;
-        }
+        center_point.GetComponent<Shuttle_settings>().MAX_FUEL += Fuel_quantity;
     }
 }

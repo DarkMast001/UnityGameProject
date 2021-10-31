@@ -9,4 +9,12 @@ public class Shuttle_settings : MonoBehaviour
 
     public double MAX_FUEL = 0;
     public double Current_fuel;
+
+    public double weight_modules = 0;
+    public double waight_fuel;
+
+    private void FixedUpdate()
+    {
+        waight_fuel = Current_fuel * 0.8;
+    }
 }

@@ -12,6 +12,7 @@ public class body_type_1 : Body
     private void Start()
     {
         center_point = GameObject.FindGameObjectWithTag("Center");
+        center_point.GetComponent<Shuttle_settings>().weight_modules += gameObject.GetComponent<Rigidbody>().mass;
         center_point.GetComponent<Shuttle_settings>().MAX_FUEL += Fuel_quantity;
     }
 }

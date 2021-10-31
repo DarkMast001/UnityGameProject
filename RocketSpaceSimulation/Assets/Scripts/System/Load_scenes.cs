@@ -15,6 +15,8 @@ public class Load_scenes : Shuttle_settings
         {
             //print(modules[i]);
             modules[i].AddComponent<FixedJoint>();
+            modules[i].GetComponent<Rigidbody>().isKinematic = false;
+            weight_modules += modules[i].GetComponent<Rigidbody>().mass;
             if (i == 1)
             {
                 FixedJoint fj_1 = modules[i - 1].GetComponent<FixedJoint>();

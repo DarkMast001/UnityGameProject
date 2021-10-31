@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public ParticleSystem part;
-
-    void Start()
-    {
-        part = gameObject.GetComponent<ParticleSystem>();
-    }
-
+    double new_G;
     void Update()
     {
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            part.Play();
-        }
-        else
-        {
-            part.Stop();
+            new_G = (6.67 * Mathf.Pow(10, -11) * 5.9742 * Mathf.Pow(10, 24)) / (Mathf.Pow(6371000, 2));
+            print(new_G);
+            //Physics.gravity = new Vector3(0, 1, 0);
         }
     }
 }

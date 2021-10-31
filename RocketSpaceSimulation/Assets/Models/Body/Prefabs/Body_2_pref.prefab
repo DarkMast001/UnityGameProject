@@ -1,19 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &4265645155691941186
+--- !u!54 &4073437251547152846
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346320192638852361}
+  serializedVersion: 2
+  m_Mass: 6
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &770376953877297369
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6674915878470129494}
+  m_GameObject: {fileID: 1346320192638852361}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!1001 &5792607075018123783
+--- !u!114 &6679108186410634033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346320192638852361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ba4a7ee3957a94b88f19997d9ba215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2192829452615000152
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -26,15 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5107913
+      value: 0.24153115
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.000006198883
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.0870523
+      value: 0.36300516
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -74,8 +102,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
---- !u!1 &6674915878470129494 stripped
+--- !u!1 &1346320192638852361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ff216bfb099a921409c02dcec12ba8ba, type: 3}
-  m_PrefabInstance: {fileID: 5792607075018123783}
+  m_PrefabInstance: {fileID: 2192829452615000152}
   m_PrefabAsset: {fileID: 0}

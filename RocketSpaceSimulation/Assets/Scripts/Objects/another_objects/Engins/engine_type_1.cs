@@ -10,11 +10,14 @@ public class engine_type_1 : Engin
 
     private void Start()
     {
+        //print(Fuel_consumtion_engine);
         center_point = GameObject.FindGameObjectWithTag("Center");
+        center_point.GetComponent<Shuttle_settings>().weight_modules += gameObject.GetComponent<Rigidbody>().mass;
     }
 
     private void Update()
     {
+        //print(Fuel_consumtion_engine * Time.deltaTime);
         if (Input.GetKey(KeyCode.Q))
         {
             center_point.GetComponent<Shuttle_settings>().Current_fuel -= Fuel_consumtion_engine * Time.deltaTime;
