@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    double new_G;
+    public Rigidbody rb;
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            new_G = (6.67 * Mathf.Pow(10, -11) * 5.9742 * Mathf.Pow(10, 24)) / (Mathf.Pow(6371000, 2));
-            print(new_G);
-            //Physics.gravity = new Vector3(0, 1, 0);
-        }
+        if (Input.GetKey(KeyCode.Q))
+            rb.AddForce(0, 10, 0);
+        if (Input.GetKey(KeyCode.W))
+            rb.AddForce(0, 10, 10);
+        if (Input.GetKey(KeyCode.S))
+            rb.AddForce(0, 10, -10);
+        if (Input.GetKey(KeyCode.A))
+            rb.AddForce(10, 10, 0);
+        if (Input.GetKey(KeyCode.D))
+            rb.AddForce(-10, 10, 0);
     }
 }

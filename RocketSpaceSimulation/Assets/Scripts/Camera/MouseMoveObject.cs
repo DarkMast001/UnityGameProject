@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseMoveObject : Shuttle_settings
+public class MouseMoveObject : MonoBehaviour
 {
+    GameObject Shuttle_settings;
+
     public Transform target;
     public Transform exception_target;
 
     private Vector3 offset;
     private float distance;
+
+    private void Start()
+    {
+        Shuttle_settings = GameObject.FindGameObjectWithTag("Center");
+    }
 
     void Update()
     {
@@ -35,14 +42,14 @@ public class MouseMoveObject : Shuttle_settings
             if (Input.GetKey(KeyCode.Delete) && target != exception_target)
             {
                 // Destroy(target.gameObject);
-                if (engines.Contains(transform.gameObject))
+                if (Shuttle_settings.GetComponent<Shuttle_settings>().engines.Contains(transform.gameObject))
                 {
-                    engines.Remove(target.gameObject);
+                    Shuttle_settings.GetComponent<Shuttle_settings>().engines.Remove(target.gameObject);
                     Destroy(target.gameObject);
                 }
-                else if (modules.Contains(transform.gameObject))
+                else if (Shuttle_settings.GetComponent<Shuttle_settings>().modules.Contains(transform.gameObject))
                 {
-                    modules.Remove(target.gameObject);
+                    Shuttle_settings.GetComponent<Shuttle_settings>().modules.Remove(target.gameObject);
                     Destroy(target.gameObject);
                 }
             }

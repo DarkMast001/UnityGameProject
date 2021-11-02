@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DistabceOBJ : Shuttle_settings
+public class DistabceOBJ : MonoBehaviour
 {
     public bool isConnected;
     public float distanceX;
@@ -13,11 +13,13 @@ public class DistabceOBJ : Shuttle_settings
     public GameObject[] elements;
     GameObject nearest;
     GameObject mainShuttle;
+    GameObject Shuttle_settings;
 
     FixedJoint fixedJoint;
 
     private void Start()
     {
+        Shuttle_settings = GameObject.FindGameObjectWithTag("Center");
         elements = GameObject.FindGameObjectsWithTag("Support");
         mainShuttle = GameObject.FindGameObjectWithTag("Main_shuttle");
 
@@ -26,13 +28,13 @@ public class DistabceOBJ : Shuttle_settings
             //print(child.name);
             if (child.name == "Engine_1(Clone)" || child.name == "Engine_2(Clone)")
             {
-                engines.Add(child.gameObject);
+                Shuttle_settings.GetComponent<Shuttle_settings>().engines.Add(child.gameObject);
                 //print(1);
             }
         }
-        if (!modules.Contains(transform.gameObject)) //transform.gameObject.GetComponent<FixedJoint>() == null && engines.Contains(transform.gameObject) == false)
+        if (!Shuttle_settings.GetComponent<Shuttle_settings>().modules.Contains(transform.gameObject)) //transform.gameObject.GetComponent<FixedJoint>() == null && engines.Contains(transform.gameObject) == false)
         {
-            modules.Add(transform.gameObject);
+            Shuttle_settings.GetComponent<Shuttle_settings>().modules.Add(transform.gameObject);
             /*transform.gameObject.AddComponent<Rigidbody>();
             transform.gameObject.AddComponent<FixedJoint>();
             fixedJoint = transform.gameObject.GetComponent<FixedJoint>();

@@ -4,70 +4,41 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Load_scenes : Shuttle_settings
+public class Load_scenes : MonoBehaviour
 {
     public GameObject scroll;
+    public GameObject shuttle_settings;
 
     public void SceneLoading()
     {
         scroll.SetActive(false);
-        for (int i = 0; i < modules.Count; i++)
+        for (int i = 0; i < shuttle_settings.GetComponent<Shuttle_settings>().modules.Count; i++)
         {
-            //print(modules[i]);
-            modules[i].AddComponent<FixedJoint>();
-            modules[i].GetComponent<Rigidbody>().isKinematic = false;
-            weight_modules += modules[i].GetComponent<Rigidbody>().mass;
+            Ray ray = new Ray(shuttle_settings.GetComponent<Shuttle_settings>().modules[i].transform.position, transform.up);
+            if (!Physics.Raycast(ray, 100))
+            {
+                shuttle_settings.GetComponent<Shuttle_settings>().surface_area += 1;
+            }
+            shuttle_settings.GetComponent<Shuttle_settings>().modules[i].AddComponent<FixedJoint>().breakForce = 10000;
+            shuttle_settings.GetComponent<Shuttle_settings>().modules[i].GetComponent<Rigidbody>().isKinematic = false;
+            shuttle_settings.GetComponent<Shuttle_settings>().weight_modules += shuttle_settings.GetComponent<Shuttle_settings>().modules[i].GetComponent<Rigidbody>().mass;
             if (i == 1)
             {
-                FixedJoint fj_1 = modules[i - 1].GetComponent<FixedJoint>();
-                fj_1.connectedBody = modules[i].GetComponent<Rigidbody>();
+                FixedJoint fj_1 = shuttle_settings.GetComponent<Shuttle_settings>().modules[i - 1].GetComponent<FixedJoint>();
+                fj_1.connectedBody = shuttle_settings.GetComponent<Shuttle_settings>().modules[i].GetComponent<Rigidbody>();
             }
            // else if (i > 1) 
             //{
-                FixedJoint fx = modules[i].GetComponent<FixedJoint>();
-                fx.connectedBody = modules[0].GetComponent<Rigidbody>();
+                FixedJoint fx = shuttle_settings.GetComponent<Shuttle_settings>().modules[i].GetComponent<FixedJoint>();
+                fx.connectedBody = shuttle_settings.GetComponent<Shuttle_settings>().modules[0].GetComponent<Rigidbody>();
             //}
-            if (engines.Contains(modules[i]))
+            if (shuttle_settings.GetComponent<Shuttle_settings>().engines.Contains(shuttle_settings.GetComponent<Shuttle_settings>().modules[i]))
             {
-                modules[i].AddComponent<RocketStart>();
+                shuttle_settings.GetComponent<Shuttle_settings>().modules[i].AddComponent<RocketStart>();
             }
-            /*if (i + 1 == modules.Count && modules[i].GetComponent<FixedJoint>() == null)
-            {
-                modules[i].AddComponent<RocketStart>();
-                modules[i].AddComponent<FixedJoint>();
-                FixedJoint fj_1 = modules[i].GetComponent<FixedJoint>();
-                fj_1.connectedBody = modules[0].GetComponent<Rigidbody>();
-            }
-            else
-            {
-                if (!engines.Contains(modules[i]) && !engines.Contains(modules[i + 1]))
-                {
-                    if (modules[i + 1].GetComponent<FixedJoint>() == null)
-                    {
-                        modules[i + 1].AddComponent<FixedJoint>();
-                        FixedJoint fj_2 = modules[i + 1].GetComponent<FixedJoint>();
-                        fj_2.connectedBody = modules[0].GetComponent<Rigidbody>();
-                    }
-                    if (modules[i].GetComponent<FixedJoint>() == null)
-                    {
-                        modules[i].AddComponent<FixedJoint>();
-                        FixedJoint fj_1 = modules[i].GetComponent<FixedJoint>();
-                        FixedJoint fj_2 = modules[i + 1].GetComponent<FixedJoint>();
-                        fj_1.connectedBody = modules[i + 1].GetComponent<Rigidbody>();
-                        fj_2.connectedBody = modules[0].GetComponent<Rigidbody>();
-                    }
-                }
-                else if (modules.Contains(modules[i]))
-                {
-                    modules[i].AddComponent<FixedJoint>();
-                    modules[i].AddComponent<RocketStart>();
-                    FixedJoint fj_1 = modules[i].GetComponent<FixedJoint>();
-                    fj_1.connectedBody = modules[0].GetComponent<Rigidbody>();
-                }
-            }*/
         }
 
-        GameObject rotated_point = modules[0];
+        GameObject rotated_point = shuttle_settings.GetComponent<Shuttle_settings>().modules[0];
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
         camera.GetComponent<CameraRotateAround>().target = rotated_point.transform;
 
