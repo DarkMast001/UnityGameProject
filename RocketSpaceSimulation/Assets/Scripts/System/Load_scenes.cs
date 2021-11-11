@@ -8,9 +8,28 @@ public class Load_scenes : MonoBehaviour
 {
     public GameObject scroll;
     public GameObject shuttle_settings;
+    public GameObject windDirection;
+    public float diractionX;
+    public float diractionY;
 
     public void SceneLoading()
     {
+        windDirection.SetActive(true);
+        windDirection.transform.rotation = Quaternion.Euler(-90, 0, Random.Range(0, 360));
+        if(windDirection.transform.eulerAngles.y >= 0)
+        {
+            diractionX = Mathf.Sin(windDirection.transform.eulerAngles.y - 270);
+            diractionY = Mathf.Cos(windDirection.transform.eulerAngles.y - 270);
+            //print(windDirection.transform.eulerAngles.y - 270);
+        }
+        else
+        {
+            diractionX = Mathf.Sin((270 - windDirection.transform.eulerAngles.y) * -1);
+            diractionY = Mathf.Cos((270 - windDirection.transform.eulerAngles.y) * -1);
+            //print((270 - windDirection.transform.eulerAngles.y) * -1);
+        }
+        //print(windDirection.transform.eulerAngles.y);
+
         scroll.SetActive(false);
         for (int i = 0; i < shuttle_settings.GetComponent<Shuttle_settings>().modules.Count; i++)
         {

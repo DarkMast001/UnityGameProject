@@ -16,7 +16,7 @@ public class Shuttle_settings : MonoBehaviour
 
     public int surface_area = 0;
     public double aerodynamic_drag;
-    public double break_force = 10000;
+    private double break_force = 50000;
     public GameObject obj;
 
     private void FixedUpdate()
@@ -27,6 +27,8 @@ public class Shuttle_settings : MonoBehaviour
             for(int i = 0; i < modules.Count; i++)
             {
                 Destroy(modules[i].GetComponent<FixedJoint>());
+                Current_fuel = 0;
+                waight_fuel = 0;
             }
         }
         waight_fuel = Current_fuel * 0.8;
