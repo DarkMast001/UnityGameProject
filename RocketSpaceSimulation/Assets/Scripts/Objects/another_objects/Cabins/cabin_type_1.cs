@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cabin_type_1 : MonoBehaviour
+public class cabin_type_1 : Cabin
 {
     GameObject center_point;
 

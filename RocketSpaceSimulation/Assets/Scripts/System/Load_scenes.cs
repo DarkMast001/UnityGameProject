@@ -9,8 +9,14 @@ public class Load_scenes : MonoBehaviour
     public GameObject scroll;
     public GameObject shuttle_settings;
     public GameObject windDirection;
+    public GameObject windArea;
     public float diractionX;
     public float diractionY;
+
+    private void Start()
+    {
+        windArea = GameObject.FindGameObjectWithTag("windArea");
+    }
 
     public void SceneLoading()
     {
@@ -28,11 +34,14 @@ public class Load_scenes : MonoBehaviour
             diractionY = Mathf.Cos((270 - windDirection.transform.eulerAngles.y) * -1);
             //print((270 - windDirection.transform.eulerAngles.y) * -1);
         }
+        windArea.GetComponent<WindArea>().direction.x = -diractionX;
+        windArea.GetComponent<WindArea>().direction.z = -diractionY;
         //print(windDirection.transform.eulerAngles.y);
 
         scroll.SetActive(false);
         for (int i = 0; i < shuttle_settings.GetComponent<Shuttle_settings>().modules.Count; i++)
         {
+            shuttle_settings.GetComponent<Shuttle_settings>().modules[i].AddComponent<WindModules>();
             Ray ray = new Ray(shuttle_settings.GetComponent<Shuttle_settings>().modules[i].transform.position, transform.up);
             if (!Physics.Raycast(ray, 100))
             {
