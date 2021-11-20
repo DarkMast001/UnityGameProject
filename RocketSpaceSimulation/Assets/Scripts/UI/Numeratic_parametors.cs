@@ -14,6 +14,7 @@ public class Numeratic_parametors : MonoBehaviour
     public Rigidbody rb_for_speed;
     public GameObject haight_obj;
     public GameObject center_point;
+    public GameObject exceptionTarget;
 
     public double speed_doub;
     double current_amount_of_fuel;
@@ -21,7 +22,6 @@ public class Numeratic_parametors : MonoBehaviour
 
     //Phisics components
     double new_G;
-    double earth_mass = 6371000;
 
     private void Update()
     {

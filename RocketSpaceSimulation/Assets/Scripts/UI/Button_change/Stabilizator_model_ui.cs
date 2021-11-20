@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Engine_model_ui : MonoBehaviour
+public class Stabilizator_model_ui : MonoBehaviour
 {
     public GameObject ui_cabin;
     public GameObject ui_body;
@@ -12,7 +12,7 @@ public class Engine_model_ui : MonoBehaviour
     {
         ui_body.SetActive(false);
         ui_cabin.SetActive(false);
-        ui_engine.SetActive(true);
-        ui_stabilizer.SetActive(false);
+        ui_engine.SetActive(false);
+        ui_stabilizer.SetActive(true);
     }
 }

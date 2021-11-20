@@ -14,6 +14,7 @@ public class MouseMoveObject : MonoBehaviour
 
     private void Start()
     {
+        exception_target = gameObject.GetComponent<Numeratic_parametors>().exceptionTarget.transform;
         Shuttle_settings = GameObject.FindGameObjectWithTag("Center");
     }
 
