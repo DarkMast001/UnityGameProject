@@ -8,6 +8,10 @@ TagManager:
   - Main_shuttle
   - Center
   - windArea
+  - Right
+  - Left
+  - Up
+  - Down
   - StabilizatorPoint
   layers:
   - Default

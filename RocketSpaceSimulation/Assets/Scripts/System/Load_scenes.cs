@@ -10,6 +10,11 @@ public class Load_scenes : MonoBehaviour
     public GameObject shuttle_settings;
     public GameObject windDirection;
     public GameObject windArea;
+    public GameObject modelChoise;
+
+    //public GameObject normalAngle;
+    //public GameObject normalAngleMain;
+
     public float diractionX;
     public float diractionY;
 
@@ -20,6 +25,9 @@ public class Load_scenes : MonoBehaviour
 
     public void SceneLoading()
     {
+        modelChoise.SetActive(false);
+        //normalAngle.SetActive(true);
+        //normalAngleMain.SetActive(true);
         windDirection.SetActive(true);
         windDirection.transform.rotation = Quaternion.Euler(-90, 0, Random.Range(0, 360));
         if(windDirection.transform.eulerAngles.y >= 0)

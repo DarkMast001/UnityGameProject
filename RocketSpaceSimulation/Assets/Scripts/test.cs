@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public Rigidbody rb;
+    Rigidbody rb;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -12,15 +12,9 @@ public class test : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
-            rb.AddForce(0, 10, 0);
-        if (Input.GetKey(KeyCode.W))
-            rb.AddForce(0, 10, 10);
-        if (Input.GetKey(KeyCode.S))
-            rb.AddForce(0, 10, -10);
-        if (Input.GetKey(KeyCode.A))
-            rb.AddForce(10, 10, 0);
-        if (Input.GetKey(KeyCode.D))
-            rb.AddForce(-10, 10, 0);
+        if (Input.GetKey(KeyCode.C))
+        {
+            rb.AddForce(-gameObject.transform.right * 30);
+        }
     }
 }
