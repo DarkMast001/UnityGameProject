@@ -19,6 +19,8 @@ public class Shuttle_settings : MonoBehaviour
     private double break_force = 50000;
     public GameObject obj;
 
+    public bool gameIsStart = false;
+
     private void FixedUpdate()
     {
         aerodynamic_drag = 0.8 * (1.2041 * Mathf.Pow((float)obj.GetComponent<Numeratic_parametors>().speed_doub, 2) / 2) * surface_area;
@@ -33,4 +35,7 @@ public class Shuttle_settings : MonoBehaviour
         }
         waight_fuel = Current_fuel * 0.8;
     }
+
+    public bool getGameIsStart(){ return gameIsStart; }
+    public void setGameIsStart(bool gameIsStart) { this.gameIsStart = gameIsStart; }
 }

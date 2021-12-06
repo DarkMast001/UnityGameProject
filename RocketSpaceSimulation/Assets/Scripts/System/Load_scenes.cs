@@ -28,6 +28,7 @@ public class Load_scenes : MonoBehaviour
 
     public void SceneLoading()
     {
+        shuttle_settings.GetComponent<Shuttle_settings>().gameIsStart = true;
         modelChoise.SetActive(false);
         //normalAngle.SetActive(true);
         //normalAngleMain.SetActive(true);

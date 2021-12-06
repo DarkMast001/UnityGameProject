@@ -18,12 +18,12 @@ public class Acceleration_UI : MonoBehaviour
 
     public void FiveX()
     {
-        currentSpeed = 5.0f;
+        currentSpeed = 4.990f;
     }
 
     public void TenX()
     {
-        currentSpeed = 10.1f;
+        currentSpeed = 9.999f;
     }
 
     private void Update()
@@ -36,13 +36,13 @@ public class Acceleration_UI : MonoBehaviour
         {
             Time.timeScale = 2.0f;
         }
-        if (currentSpeed == 5.0f)
+        if (currentSpeed == 4.990f)
         {
-            Time.timeScale = 5.0f;
+            Time.timeScale = 4.999f;
         }
-        if (currentSpeed == 10.1f)
+        if (currentSpeed == 9.999f)
         {
-            Time.timeScale = 10.1f;
+            Time.timeScale = 9.999f;
         }
     }
 }
