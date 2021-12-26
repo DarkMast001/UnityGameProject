@@ -12,8 +12,10 @@ public class Load_scenes : MonoBehaviour
     public GameObject windArea;
     public GameObject modelChoise;
 
-    public GameObject rotationPoint;
+    public GameObject rotationPointMovement;
+    public GameObject rotationPointNormal;
     public GameObject tmp_rotate;
+    public GameObject tmp_rotate_2;
 
     //public GameObject normalAngle;
     //public GameObject normalAngleMain;
@@ -51,9 +53,12 @@ public class Load_scenes : MonoBehaviour
         //print(windDirection.transform.eulerAngles.y);
 
         scroll.SetActive(false);
-        rotationPoint.SetActive(true);
+        rotationPointNormal.SetActive(true);
+        rotationPointMovement.SetActive(true);
         tmp_rotate.SetActive(true);
-        shuttle_settings.GetComponent<Shuttle_settings>().modules[0].AddComponent<ugol>().rot = rotationPoint;
+        tmp_rotate_2.SetActive(true);
+        //shuttle_settings.GetComponent<Shuttle_settings>().modules[0].AddComponent<UgolNew>().rot = rotationPointNormal;
+        shuttle_settings.GetComponent<Shuttle_settings>().modules[0].AddComponent<ugol>().rot = rotationPointMovement;
         for (int i = 0; i < shuttle_settings.GetComponent<Shuttle_settings>().modules.Count; i++)
         {
             shuttle_settings.GetComponent<Shuttle_settings>().modules[i].AddComponent<WindModules>();

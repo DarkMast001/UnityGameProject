@@ -10,6 +10,7 @@ public class AddStabilizer : MonoBehaviour
     public GameObject camera;
     public GameObject mainModule;
     public GameObject stabilizer;
+    public GameObject chooseEngine;
 
     public Selectable currentSelectable;
 
@@ -19,6 +20,9 @@ public class AddStabilizer : MonoBehaviour
 
     private int clickCount = 1;
     private bool mode = false;
+    private string engineName;
+    public bool flag = false;
+    private int bigCounter = 0;
 
     Vector3 pointPos;
 
@@ -29,7 +33,6 @@ public class AddStabilizer : MonoBehaviour
 
     private void setSphere()
     {
-        int bigCounter = 0;
         for(int i = 0; i < center.transform.childCount; i++)
         {
             if (center.transform.GetChild(i).name.Equals("Right") || center.transform.GetChild(i).name.Equals("Left")
@@ -105,6 +108,25 @@ public class AddStabilizer : MonoBehaviour
                         }
                     }
                 }
+                else if (hit.collider.gameObject.name.Contains("Engine") && !flag)
+                {
+                    chooseEngine = hit.collider.gameObject;
+                    flag = true;
+                    GameObject engineObj = hit.collider.gameObject;
+                    for (int i = 0; i < engineObj.transform.childCount; i++)
+                    {
+                        if(engineObj.transform.GetChild(i).name.Equals("RightE") || engineObj.transform.GetChild(i).name.Equals("LeftE")
+                            || engineObj.transform.GetChild(i).name.Equals("UpE") || engineObj.transform.GetChild(i).name.Equals("DownE"))
+                        {
+                            pointPos = engineObj.transform.GetChild(i).position;
+                            spheres.Add(Instantiate(sphere, pointPos, Quaternion.identity));
+                            spheres[bigCounter].tag = "StabilizatorPoint";
+                            //print(engineObj.transform.GetChild(i).name);
+                            spheres[bigCounter].name = engineObj.transform.GetChild(i).name;
+                            bigCounter++;
+                        }
+                    }
+                }
                 else
                 {
                     if (currentSelectable)
@@ -121,6 +143,7 @@ public class AddStabilizer : MonoBehaviour
             Destroy(currentSelectable.gameObject);
             spheres.Remove(currentSelectable.gameObject);
             GameObject tmp;
+            print(currentSelectable.name);
             switch (currentSelectable.name)
             {
                 case "Right":
@@ -142,6 +165,27 @@ public class AddStabilizer : MonoBehaviour
                     tmp = Instantiate(stabilizer, tmp_vect, Quaternion.Euler(0, -180, 0));
                     tmp.tag = "Down";
                     tmp.GetComponent<FixedJoint>().connectedBody = center.GetComponent<Rigidbody>();
+                    break;
+
+                case "RightE":
+                    tmp = Instantiate(stabilizer, tmp_vect, Quaternion.Euler(0, 90, 0));
+                    tmp.tag = "RightE";
+                    tmp.GetComponent<FixedJoint>().connectedBody = chooseEngine.GetComponent<Rigidbody>();
+                    break;
+                case "LeftE":
+                    tmp = Instantiate(stabilizer, tmp_vect, Quaternion.Euler(0, -90, 0));
+                    tmp.tag = "LeftE";
+                    tmp.GetComponent<FixedJoint>().connectedBody = chooseEngine.GetComponent<Rigidbody>();
+                    break;
+                case "UpE":
+                    tmp = Instantiate(stabilizer, tmp_vect, Quaternion.Euler(0, 0, 0));
+                    tmp.tag = "UpE";
+                    tmp.GetComponent<FixedJoint>().connectedBody = chooseEngine.GetComponent<Rigidbody>();
+                    break;
+                case "DownE":
+                    tmp = Instantiate(stabilizer, tmp_vect, Quaternion.Euler(0, -180, 0));
+                    tmp.tag = "DownE";
+                    tmp.GetComponent<FixedJoint>().connectedBody = chooseEngine.GetComponent<Rigidbody>();
                     break;
             }
         }

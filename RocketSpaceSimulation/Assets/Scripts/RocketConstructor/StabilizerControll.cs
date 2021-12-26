@@ -37,6 +37,27 @@ public class StabilizerControll : MonoBehaviour
             part.Play();
             rb.AddForce(-gameObject.transform.forward * 50);
         }
+
+        else if (Input.GetKey(KeyCode.UpArrow) && gameObject.tag == "DownE")
+        {
+            part.Play();
+            rb.AddForce(-gameObject.transform.forward * 50);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow) && gameObject.tag == "UpE")
+        {
+            part.Play();
+            rb.AddForce(-gameObject.transform.forward * 50);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && gameObject.tag == "LeftE")
+        {
+            part.Play();
+            rb.AddForce(-gameObject.transform.forward * 50);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) && gameObject.tag == "RightE")
+        {
+            part.Play();
+            rb.AddForce(-gameObject.transform.forward * 50);
+        }
         else
         {
             part.Stop();

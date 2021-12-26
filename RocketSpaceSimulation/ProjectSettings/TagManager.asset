@@ -13,6 +13,10 @@ TagManager:
   - Up
   - Down
   - StabilizatorPoint
+  - RightE
+  - LeftE
+  - UpE
+  - DownE
   layers:
   - Default
   - TransparentFX

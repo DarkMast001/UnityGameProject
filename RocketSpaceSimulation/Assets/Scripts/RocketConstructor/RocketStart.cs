@@ -24,7 +24,7 @@ public class RocketStart : Engin
         part = gameObject.GetComponent<ParticleSystem>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.Q) && center_point.GetComponent<Shuttle_settings>().Current_fuel > 0)
         {
